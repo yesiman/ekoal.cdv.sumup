@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-sumup" version="0.2.3">
+  <name>Sumup</name>
+  <description>Cordova Sumup Plugin</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,supup</keywords>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Sumup">
+        <param name="ios-package" value="CDVSumup"/>
+      </feature>
+    </config-file>
+    <header-file src="src/ios/CDVSumup.h" />
+    <source-file src="src/ios/CDVSumup.m" />
+  </platform>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Sumup">
+        <param name="android-package" value="org.apache.cordova.sumup.sumup" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="ResultActivity"  android:label="Payment Result">
+        <intent-filter>
+          <action android:name="com.example.ResultActivity"></action>
+          <category android:name="android.intent.category.DEFAULT"></category>
+          <category android:name="android.intent.category.BROWSABLE"></category>
+        </intent-filter>
+      </activity>
+    </config-file>
+    <source-file src="src/android/sumup.java" target-dir="src/org/apache/cordova/sumup" />
+    <source-file src="src/android/sdksumup/merchant-sdk-1.55.1.aar" target-dir="libs" />
+  </platform>
+</plugin>
