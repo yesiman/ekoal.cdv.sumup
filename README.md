@@ -9,7 +9,7 @@ This plugin permit interconnection beetween native sumUp SDK and hybrid mobile a
 
 <b>Installation</b>
 
-$ cordova plugin add https://github.com/yesiman/cordova-plugin-sumup.git
+$ cordova plugin add https://github.com/yesiman/ekoal.cdv.sumup
 
 Acually have to update your source script to update your AFFILIATION KEY, next release will permit to pass this affiliation key via cordova plugin installion for auto injection
 
