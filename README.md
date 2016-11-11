@@ -1,4 +1,4 @@
-# cordova-plugin-sumup (not ready for use .. working on it to make clear repositorie with my locals code)
+# cordova-plugin-sumup
 Cordova plugin for native acces to the sumup paiement system
 
 This plugin permit interconnection beetween native sumUp SDK and hybrid mobile app.
