@@ -16,6 +16,14 @@ Acually have to update your source script to update your AFFILIATION KEY, next r
 <b>JS CODE</b>
 
 <pre>
+
+  //Have to make this proper
+  var Sumup = {
+      pay: function (success, failure, affKey, amount, dev) {
+          cordova.exec(success, failure, "Sumup", "pay", [affKey, amount, dev]);
+      }
+      //LOG function missing (wait a little)
+  };
   function nativePluginResultHandler(result) {
       if (result === 1);
       {
@@ -33,6 +41,7 @@ Acually have to update your source script to update your AFFILIATION KEY, next r
 <b>ANDROID Installation</b>
 
 Update yout gradle Android module file 
+<pre>
 //Add repositorie local location
 buildscript {
     repositories {
@@ -41,8 +50,9 @@ buildscript {
         }
     }
 }
-
+</pre>
 //Avoid duplicate jar files during compilation
+<pre>
 android
 {
   packagingOptions {
@@ -61,3 +71,4 @@ dependencies {
         transitive = true
     }
 }
+</pre>
