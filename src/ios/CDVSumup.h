@@ -9,6 +9,7 @@
 
 @interface CDVSumup : CDVPlugin
 
+-(void) log:(CDVInvokedUrlCommand*)command;
 -(void) pay:(CDVInvokedUrlCommand*)command;
 
 @end
