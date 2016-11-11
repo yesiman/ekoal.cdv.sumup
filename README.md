@@ -15,31 +15,18 @@ Acually have to update your source script to update your AFFILIATION KEY, next r
 
 <b>JS CODE</b>
 
-<code>
-function nativePluginResultHandler(result) {
-                    if (result === 1);
-                    {
-                        $scope.soldStart = true;
-                        //$scope.command.toSold = parseFloat($scope.command.toSold.toFixed(2)) -        parseFloat(parseFloat(val).toFixed(2));
-                        //$scope.command.toSold = parseFloat($scope.command.toSold.toFixed(2));
-                        var tssold = (Date.now() / 1000 | 0);
-                        if ($scope.cid) {
-                            $scope.command.$save();
-                            $scope.addSoldLine(typ.$id, val, tssold, "i");
-                        }
-                        else {
-                            $scope.commands.$add($scope.command);
-                            $scope.addSoldLine(typ.$id, val, tssold, "i");
-                        }
-                    }
-                }
-
-                function nativePluginErrorHandler(error) {
-                    alert("ERROR: \r\n" + error);
-                }
-
-                Sumup.pay(nativePluginResultHandler, nativePluginErrorHandler, $scope.params.sumup.affiliate, val, $scope.params.sumup.devise);
-<code>
+<pre>
+  function nativePluginResultHandler(result) {
+      if (result === 1);
+      {
+          //PAYMENT OK
+      }
+  }
+  function nativePluginErrorHandler(error) {
+      alert("ERROR: \r\n" + error);
+  }
+  Sumup.pay(nativePluginResultHandler, nativePluginErrorHandler, "YOUR_AFFILIATION_KEY", "AMOUNT", "CURRENCY_CODE");
+</pre>
 
 <b>IOS</b>
 
