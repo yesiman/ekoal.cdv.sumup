@@ -26,6 +26,7 @@
     <config-file target="*-Info.plist" parent="SUMUP_API_KEY">
         <string>$SUMUP_API_KEY</string>
     </config-file>
+    <framework src="src/ios/SumupSDK.embeddedframework/SumupSDK.framework" custom="true" />
     <framework src="AVFoundation.framework" weak="true" />
     <framework src="Accelerate.framework"  weak="true"/>
     <framework src="MapKit.framework" weak="true" />
