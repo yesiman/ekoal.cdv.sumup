@@ -12,7 +12,10 @@
 @implementation CDVSumup
 
 -(void) log:(CDVInvokedUrlCommand *)command {
-    [SumupSDK setupWithAPIKey:@"YOUR_AFFILIATION_KEY"];
+    [[NSBundle mainBundle] infoDictionary];
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    NSString* apik = [infoDict objectForKey:@"SUMUP_API_KEY"];
+    [SumupSDK setupWithAPIKey:apik];
     [SumupSDK presentLoginFromViewController:self.viewController
         animated:YES
         completionBlock:^(BOOL success, NSError *error) {
@@ -23,6 +26,7 @@
 }
 
 -(void) pay:(CDVInvokedUrlCommand *)command {
+    
     NSString *total = @"1.00";
     if ([total doubleValue] <= 0) {
         return;
