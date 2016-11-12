@@ -26,9 +26,9 @@
     <config-file target="*-Info.plist" parent="SUMUP_API_KEY">
         <string>$SUMUP_API_KEY</string>
     </config-file>
-    <framework src="AVFoundation.framework" />
-    <framework src="Accelerate.framework" />
-    <framework src="MapKit.framework" />
+    <framework src="AVFoundation.framework" weak="true" />
+    <framework src="Accelerate.framework"  weak="true"/>
+    <framework src="MapKit.framework" weak="true" />
     <header-file src="src/ios/CDVSumup.h" />
     <source-file src="src/ios/CDVSumup.m" />
     <preference name="SUMUP_API_KEY" />
