@@ -11,12 +11,21 @@
         <param name="ios-package" value="CDVSumup"/>
       </feature>
     </config-file>
-    <plugins-plist key="NSLocationWhenInUseUsageDescription" string="" />
-    <plugins-plist key="NSBluetoothPeripheralUsageDescription" string="" />
-    <plugins-plist key="NSMicrophoneUsageDescription" string="" />
-    <plugins-plist key="NSLocationUsageDescription" string="" />
+    <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+      <string></string>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
+        <string></string>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+        <string></string>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSLocationUsageDescription">
+        <string></string>
+    </config-file>
     <header-file src="src/ios/CDVSumup.h" />
     <source-file src="src/ios/CDVSumup.m" />
+    <preference name="API_KEY" />
   </platform>
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
