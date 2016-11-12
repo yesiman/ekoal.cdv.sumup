@@ -23,9 +23,12 @@
     <config-file target="*-Info.plist" parent="NSLocationUsageDescription">
         <string></string>
     </config-file>
+    <config-file target="*-Info.plist" parent="SUMUP_API_KEY">
+        <string>SUMUP_API_KEY</string>
+    </config-file>
     <header-file src="src/ios/CDVSumup.h" />
     <source-file src="src/ios/CDVSumup.m" />
-    <preference name="API_KEY" />
+    <preference name="SUMUP_API_KEY" />
   </platform>
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
