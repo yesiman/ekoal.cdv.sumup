@@ -26,31 +26,33 @@
 }
 
 -(void) pay:(CDVInvokedUrlCommand *)command {
-    
-    NSString *total = @"1.00";
-    if ([total doubleValue] <= 0) {
-        return;
-    }
     SMPCheckoutRequest *request;
-    request = [SMPCheckoutRequest requestWithTotal:[NSDecimalNumber decimalNumberWithString:@"10.00"] title:@"titre"
+    NSString* amount = [command.arguments objectAtIndex:0];
+    CDVPluginResult* pluginResult = nil;
+    request = [SMPCheckoutRequest requestWithTotal:[NSDecimalNumber decimalNumberWithString:amount] title:@"titre"
         currencyCode:[[SumupSDK currentMerchant] currencyCode]
         paymentOptions:SMPPaymentOptionAny];
         [SumupSDK checkoutWithRequest:request fromViewController:self.viewController completion:^(SMPCheckoutResult *result, NSError *error) {
+        
+            CDVPluginResult* pluginResult = nil;
+            
         if ((error.code == SMPSumupSDKErrorAccountNotLoggedIn)) {
-            NSLog(@"%@", @"SMPSumupSDKErrorAccountNotLoggedIn");
-            return;
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:@"SMPSumupSDKErrorAccountNotLoggedIn"];
         }
         if ([error.domain isEqualToString:SMPSumupSDKErrorDomain]) {
-            NSLog(@"%@", @"SMPSumupSDKErrorDomain");
-            return;
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:@"SMPSumupSDKErrorDomain"];
         }
         if (result.success) {
-            NSLog(@"%@", @"ok");
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"OK"];
         }
-        else { NSLog(@"%@", @"no success res"); }
+        else {
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"no success res"];
+        }
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
     if (![SumupSDK checkoutInProgress]) {
-        NSLog(@"%@", @"failed to start");
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"failed to start"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     else { NSLog(@"%@", @"in progress"); }
 }
