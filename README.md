@@ -9,7 +9,9 @@ This plugin permit interconnection beetween native sumUp SDK and hybrid mobile a
 
 <b>Installation</b>
 
+<pre>
 $ cordova plugin add https://github.com/yesiman/ekoal.cdv.sumup --variable SUMUP_API_KEY=YOUR_AFFILIATION_KEY
+</pre>
 
 You can generate your affiliation key in your merchant account on SumUp website in the developper menu.
 
