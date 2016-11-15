@@ -1,7 +1,7 @@
 # cordova-plugin-sumup
 Cordova plugin for native acces to the sumup paiement system
 
-This plugin permit interconnection beetween native sumUp SDK and hybrid mobile app.
+This plugin permit interconnection beetween native sumUp SDK and hybrid mobile app (cordova/phonegap).
 
 <b>Compatibility :</b>
 - IOS
@@ -9,20 +9,21 @@ This plugin permit interconnection beetween native sumUp SDK and hybrid mobile a
 
 <b>Installation</b>
 
-$ cordova plugin add https://github.com/yesiman/ekoal.cdv.sumup
+$ cordova plugin add https://github.com/yesiman/ekoal.cdv.sumup --variable SUMUP_API_KEY=YOUR_AFFILIATION_KEY
 
-Acually have to update your source script to update your AFFILIATION KEY, next release will permit to pass this affiliation key via cordova plugin installion for auto injection
+You can generate your affiliation key in your merchant account on SumUp website in the developper menu.
 
 <b>JS CODE</b>
 
 <pre>
-
-  //Have to make this proper
   var Sumup = {
-      pay: function (success, failure, affKey, amount, dev) {
-          cordova.exec(success, failure, "Sumup", "pay", [affKey, amount, dev]);
-      }
-      //LOG function missing (wait a little)
+    pay: function (success, failure, amount, dev) {
+        cordova.exec(success, failure, "Sumup", "pay", [amount, currencycode]);
+    },
+    log: function (success, failure) {
+        cordova.exec(success, failure, "Sumup", "log", []);
+    }
+    //LOG function missing (wait a little)
   };
   function nativePluginResultHandler(result) {
       if (result === 1);
@@ -33,7 +34,11 @@ Acually have to update your source script to update your AFFILIATION KEY, next r
   function nativePluginErrorHandler(error) {
       alert("ERROR: \r\n" + error);
   }
-  Sumup.pay(nativePluginResultHandler, nativePluginErrorHandler, "YOUR_AFFILIATION_KEY", "AMOUNT", "CURRENCY_CODE");
+  
+  //METHODS
+  Sumup.log(nativePluginResultHandler, nativePluginErrorHandler);
+  //OR
+  Sumup.pay(nativePluginResultHandler, nativePluginErrorHandler, "AMOUNT", "CURRENCY_CODE");
 </pre>
 
 <b>IOS</b>
