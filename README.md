@@ -7,6 +7,10 @@ This plugin permit interconnection beetween native sumUp SDK and hybrid mobile a
 - IOS
 - ANDROID
 
+<b>Test Sample (Ionic /AngularJS)</b>
+
+Add your own platforms, follow the installation process, build and run
+
 <b>Installation</b>
 
 <pre>
