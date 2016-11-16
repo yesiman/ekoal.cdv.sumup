@@ -19,7 +19,7 @@ You can generate your affiliation key in your merchant account on SumUp website 
 
 <pre>
   var Sumup = {
-    pay: function (success, failure, amount, dev) {
+    pay: function (success, failure, amount, currencycode) {
         cordova.exec(success, failure, "Sumup", "pay", [amount, currencycode]);
     },
     log: function (success, failure) {
@@ -40,42 +40,5 @@ You can generate your affiliation key in your merchant account on SumUp website 
   //METHODS
   Sumup.log(nativePluginResultHandler, nativePluginErrorHandler);
   //OR
-  Sumup.pay(nativePluginResultHandler, nativePluginErrorHandler, "AMOUNT", "CURRENCY_CODE");
-</pre>
-
-<b>IOS</b>
-
-<b>ANDROID Installation</b>
-
-Update yout gradle Android module file 
-<pre>
-//Add repositorie local location
-buildscript {
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
-}
-</pre>
-//Avoid duplicate jar files during compilation
-<pre>
-android
-{
-  packagingOptions {
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/services/javax.annotation.processing.Processor'
-    }
-}
-
-//Module definition
-dependencies {
-    compile('com.sumup:merchant-sdk:1.55.1@aar') {
-        transitive = true
-    }
-}
+  Sumup.pay(nativePluginResultHandler, nativePluginErrorHandler, 10.00, "EUR");
 </pre>
