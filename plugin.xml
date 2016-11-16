@@ -52,7 +52,14 @@
         </intent-filter>
       </activity>
     </config-file>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <preference name="SUMUP_API_KEY" />
     <source-file src="src/android/sumup.java" target-dir="src/org/apache/cordova/sumup" />
-    <source-file src="src/android/sdksumup/merchant-sdk-1.55.1.aar" target-dir="libs" />
+    <source-file src="src/android/sdksumup/merchant-sdk-1.55.1.aar" custom="true" />
+    <config-file target="./res/values/strings.xml" parent="/resources">
+      <string name="custom">$SUMUP_API_KEY</string>
+    </config-file>
   </platform>
 </plugin>
