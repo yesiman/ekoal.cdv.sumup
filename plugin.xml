@@ -58,7 +58,7 @@
     <preference name="SUMUP_API_KEY" />
     <source-file src="src/android/sumup.java" target-dir="src/org/apache/cordova/sumup" />
     <config-file target="./res/values/strings.xml" parent="/resources">
-      <string name="custom">$SUMUP_API_KEY</string>
+      <string name="SUMUP_API_KEY">$SUMUP_API_KEY</string>
     </config-file>
   </platform>
 </plugin>

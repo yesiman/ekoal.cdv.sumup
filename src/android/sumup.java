@@ -42,7 +42,7 @@ public class sumup extends CordovaPlugin {
             SumUpPayment payment = SumUpPayment.builder()
                     // mandatory parameters
                     // Your affiliate key is bound to the applicationID entered in the SumUp dashboard at https://me.sumup.com/integration-tools
-                    .affiliateKey("YOU_AFFILIATION_KEY")
+                    .affiliateKey(this.cordova.getActivity().getString(R.string.SUMUP_API_KEY))
                     .productAmount(Double.parseDouble(args.get(0).toString()))
                     .currency(SumUpPayment.Currency.valueOf(args.get(1).toString()))
                             // optional: add details
